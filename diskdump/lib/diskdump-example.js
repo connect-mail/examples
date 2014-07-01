@@ -26,7 +26,8 @@ app.use(diskdump('./mails'));
 
 //add simple middleware
 app.use(function(mail, next){
-    if (mail.to === 'me@parro.it'){
+    console.dir(mail);
+    if ( mail.to.indexOf('me@parro.it') !== -1){
         mail.accept();
     } else { 
         mail.reject();
